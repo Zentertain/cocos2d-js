@@ -205,16 +205,14 @@ ActionObject : function (
 ccs.ActionManager = {
 
 /**
- * @method playActionByName
-* @param {char|char} char
-* @param {char|char} char
-* @param {cc.CallFunc} callfunc
-* @return {ccs.ActionObject|ccs.ActionObject}
-*/
-playActionByName : function(
-char,
-char,
-callfunc 
+ * @method stopActionByName
+ * @param {char} arg0
+ * @param {char} arg1
+ * @return {ccs.ActionObject}
+ */
+stopActionByName : function (
+char, 
+char 
 )
 {
     return ccs.ActionObject;
@@ -248,6 +246,22 @@ cocoloader,
 stexpcoconode 
 )
 {
+},
+
+/**
+ * @method playActionByName
+* @param {char|char} char
+* @param {char|char} char
+* @param {cc.CallFunc} callfunc
+* @return {ccs.ActionObject|ccs.ActionObject}
+*/
+playActionByName : function(
+char,
+char,
+callfunc 
+)
+{
+    return ccs.ActionObject;
 },
 
 /**
@@ -424,6 +438,110 @@ create : function (
  * @constructor
  */
 AnimationData : function (
+)
+{
+},
+
+};
+
+/**
+ * @class ContourData
+ */
+ccs.ContourData = {
+
+/**
+ * @method init
+ * @return {bool}
+ */
+init : function (
+)
+{
+    return false;
+},
+
+/**
+ * @method addVertex
+ * @param {vec2_object} arg0
+ */
+addVertex : function (
+vec2 
+)
+{
+},
+
+/**
+ * @method create
+ * @return {ccs.ContourData}
+ */
+create : function (
+)
+{
+    return ccs.ContourData;
+},
+
+/**
+ * @method ContourData
+ * @constructor
+ */
+ContourData : function (
+)
+{
+},
+
+};
+
+/**
+ * @class TextureData
+ */
+ccs.TextureData = {
+
+/**
+ * @method getContourData
+ * @param {int} arg0
+ * @return {ccs.ContourData}
+ */
+getContourData : function (
+int 
+)
+{
+    return ccs.ContourData;
+},
+
+/**
+ * @method init
+ * @return {bool}
+ */
+init : function (
+)
+{
+    return false;
+},
+
+/**
+ * @method addContourData
+ * @param {ccs.ContourData} arg0
+ */
+addContourData : function (
+contourdata 
+)
+{
+},
+
+/**
+ * @method create
+ * @return {ccs.TextureData}
+ */
+create : function (
+)
+{
+    return ccs.TextureData;
+},
+
+/**
+ * @method TextureData
+ * @constructor
+ */
+TextureData : function (
 )
 {
 },
@@ -1553,50 +1671,6 @@ getSpeedScale : function (
 },
 
 /**
- * @method pause
- */
-pause : function (
-)
-{
-},
-
-/**
- * @method setSpeedScale
- * @param {float} arg0
- */
-setSpeedScale : function (
-float 
-)
-{
-},
-
-/**
- * @method init
- * @param {ccs.Armature} arg0
- * @return {bool}
- */
-init : function (
-armature 
-)
-{
-    return false;
-},
-
-/**
- * @method playWithIndexes
- * @param {Array} arg0
- * @param {int} arg1
- * @param {bool} arg2
- */
-playWithIndexes : function (
-array, 
-int, 
-bool 
-)
-{
-},
-
-/**
  * @method play
  * @param {String} arg0
  * @param {int} arg1
@@ -1621,26 +1695,34 @@ int
 },
 
 /**
- * @method resume
+ * @method playWithIndexes
+ * @param {Array} arg0
+ * @param {int} arg1
+ * @param {bool} arg2
  */
-resume : function (
+playWithIndexes : function (
+array, 
+int, 
+bool 
 )
 {
 },
 
 /**
- * @method stop
+ * @method setAnimationData
+ * @param {ccs.AnimationData} arg0
  */
-stop : function (
+setAnimationData : function (
+animationdata 
 )
 {
 },
 
 /**
- * @method update
+ * @method setSpeedScale
  * @param {float} arg0
  */
-update : function (
+setSpeedScale : function (
 float 
 )
 {
@@ -1657,40 +1739,6 @@ getAnimationData : function (
 },
 
 /**
- * @method playWithIndex
- * @param {int} arg0
- * @param {int} arg1
- * @param {int} arg2
- */
-playWithIndex : function (
-int, 
-int, 
-int 
-)
-{
-},
-
-/**
- * @method getCurrentMovementID
- * @return {String}
- */
-getCurrentMovementID : function (
-)
-{
-    return ;
-},
-
-/**
- * @method setAnimationData
- * @param {ccs.AnimationData} arg0
- */
-setAnimationData : function (
-animationdata 
-)
-{
-},
-
-/**
  * @method gotoAndPlay
  * @param {int} arg0
  */
@@ -1698,6 +1746,18 @@ gotoAndPlay : function (
 int 
 )
 {
+},
+
+/**
+ * @method init
+ * @param {ccs.Armature} arg0
+ * @return {bool}
+ */
+init : function (
+armature 
+)
+{
+    return false;
 },
 
 /**
@@ -1722,6 +1782,30 @@ getMovementCount : function (
 )
 {
     return 0;
+},
+
+/**
+ * @method playWithIndex
+ * @param {int} arg0
+ * @param {int} arg1
+ * @param {int} arg2
+ */
+playWithIndex : function (
+int, 
+int, 
+int 
+)
+{
+},
+
+/**
+ * @method getCurrentMovementID
+ * @return {String}
+ */
+getCurrentMovementID : function (
+)
+{
+    return ;
 },
 
 /**
@@ -2340,6 +2424,20 @@ float
 },
 
 /**
+ * @method getBool
+ * @param {String} arg0
+ * @param {bool} arg1
+ * @return {bool}
+ */
+getBool : function (
+str, 
+bool 
+)
+{
+    return false;
+},
+
+/**
  * @method getString
  * @param {String} arg0
  * @param {String} arg1
@@ -2375,20 +2473,6 @@ str,
 str 
 )
 {
-},
-
-/**
- * @method getBool
- * @param {String} arg0
- * @param {bool} arg1
- * @return {bool}
- */
-getBool : function (
-str, 
-bool 
-)
-{
-    return false;
 },
 
 /**
@@ -2449,6 +2533,15 @@ create : function (
 )
 {
     return ccs.ComAttribute;
+},
+
+/**
+ * @method ComAttribute
+ * @constructor
+ */
+ComAttribute : function (
+)
+{
 },
 
 };
@@ -2720,6 +2813,15 @@ create : function (
     return ccs.ComAudio;
 },
 
+/**
+ * @method ComAudio
+ * @constructor
+ */
+ComAudio : function (
+)
+{
+},
+
 };
 
 /**
@@ -2861,16 +2963,6 @@ ComController : function (
 ccs.ComRender = {
 
 /**
- * @method setNode
- * @param {cc.Node} arg0
- */
-setNode : function (
-node 
-)
-{
-},
-
-/**
  * @method getNode
  * @return {cc.Node}
  */
@@ -2878,6 +2970,16 @@ getNode : function (
 )
 {
     return cc.Node;
+},
+
+/**
+ * @method setNode
+ * @param {cc.Node} arg0
+ */
+setNode : function (
+node 
+)
+{
 },
 
 /**
@@ -2894,257 +2996,17 @@ char
     return ccs.ComRender;
 },
 
-};
-
 /**
- * @class GUIReader
- */
-ccs.GUIReader = {
-
-/**
- * @method setFilePath
- * @param {String} arg0
- */
-setFilePath : function (
-str 
-)
-{
-},
-
-/**
- * @method widgetFromJsonFile
- * @param {char} arg0
- * @return {ccui.Widget}
- */
-widgetFromJsonFile : function (
+ * @method ComRender
+ * @constructor
+* @param {cc.Node} node
+* @param {char} char
+*/
+ComRender : function(
+node,
 char 
 )
 {
-    return ccui.Widget;
-},
-
-/**
- * @method getFilePath
- * @return {String}
- */
-getFilePath : function (
-)
-{
-    return ;
-},
-
-/**
- * @method widgetFromBinaryFile
- * @param {char} arg0
- * @return {ccui.Widget}
- */
-widgetFromBinaryFile : function (
-char 
-)
-{
-    return ccui.Widget;
-},
-
-/**
- * @method getVersionInteger
- * @param {char} arg0
- * @return {int}
- */
-getVersionInteger : function (
-char 
-)
-{
-    return 0;
-},
-
-/**
- * @method destroyInstance
- */
-destroyInstance : function (
-)
-{
-},
-
-/**
- * @method getInstance
- * @return {ccs.GUIReader}
- */
-getInstance : function (
-)
-{
-    return ccs.GUIReader;
-},
-
-};
-
-/**
- * @class SceneReader
- */
-ccs.SceneReader = {
-
-/**
- * @method createNodeWithSceneFile
- * @param {String} arg0
- * @param {ccs.SceneReader::AttachComponentType} arg1
- * @return {cc.Node}
- */
-createNodeWithSceneFile : function (
-str, 
-attachcomponenttype 
-)
-{
-    return cc.Node;
-},
-
-/**
- * @method getAttachComponentType
- * @return {ccs.SceneReader::AttachComponentType}
- */
-getAttachComponentType : function (
-)
-{
-    return 0;
-},
-
-/**
- * @method getNodeByTag
- * @param {int} arg0
- * @return {cc.Node}
- */
-getNodeByTag : function (
-int 
-)
-{
-    return cc.Node;
-},
-
-/**
- * @method destroyInstance
- */
-destroyInstance : function (
-)
-{
-},
-
-/**
- * @method sceneReaderVersion
- * @return {char}
- */
-sceneReaderVersion : function (
-)
-{
-    return 0;
-},
-
-/**
- * @method getInstance
- * @return {ccs.SceneReader}
- */
-getInstance : function (
-)
-{
-    return ccs.SceneReader;
-},
-
-};
-
-/**
- * @class ActionTimelineCache
- */
-ccs.ActionTimelineCache = {
-
-/**
- * @method createActionFromJson
- * @param {String} arg0
- * @return {ccs.timeline::ActionTimeline}
- */
-createActionFromJson : function (
-str 
-)
-{
-    return ccs.timeline::ActionTimeline;
-},
-
-/**
- * @method purge
- */
-purge : function (
-)
-{
-},
-
-/**
- * @method init
- */
-init : function (
-)
-{
-},
-
-/**
- * @method loadAnimationActionWithFile
- * @param {String} arg0
- * @return {ccs.timeline::ActionTimeline}
- */
-loadAnimationActionWithFile : function (
-str 
-)
-{
-    return ccs.timeline::ActionTimeline;
-},
-
-/**
- * @method loadAnimationActionWithContent
- * @param {String} arg0
- * @param {String} arg1
- * @return {ccs.timeline::ActionTimeline}
- */
-loadAnimationActionWithContent : function (
-str, 
-str 
-)
-{
-    return ccs.timeline::ActionTimeline;
-},
-
-/**
- * @method removeAction
- * @param {String} arg0
- */
-removeAction : function (
-str 
-)
-{
-},
-
-/**
- * @method destroyInstance
- */
-destroyInstance : function (
-)
-{
-},
-
-/**
- * @method createAction
- * @param {String} arg0
- * @return {ccs.timeline::ActionTimeline}
- */
-createAction : function (
-str 
-)
-{
-    return ccs.timeline::ActionTimeline;
-},
-
-/**
- * @method getInstance
- * @return {ccs.timeline::ActionTimelineCache}
- */
-getInstance : function (
-)
-{
-    return ccs.timeline::ActionTimelineCache;
 },
 
 };
@@ -3162,6 +3024,16 @@ clone : function (
 )
 {
     return ccs.timeline::Frame;
+},
+
+/**
+ * @method setTweenType
+ * @param {cc.tweenfunc::TweenType} arg0
+ */
+setTweenType : function (
+tweentype 
+)
+{
 },
 
 /**
@@ -3192,6 +3064,16 @@ isEnterWhenPassed : function (
 )
 {
     return false;
+},
+
+/**
+ * @method getTweenType
+ * @return {cc.tweenfunc::TweenType}
+ */
+getTweenType : function (
+)
+{
+    return 0;
 },
 
 /**
@@ -3325,16 +3207,6 @@ getTextureName : function (
 )
 {
     return ;
-},
-
-/**
- * @method setNode
- * @param {cc.Node} arg0
- */
-setNode : function (
-node 
-)
-{
 },
 
 /**
@@ -3720,6 +3592,26 @@ AnchorPointFrame : function (
 ccs.InnerActionFrame = {
 
 /**
+ * @method getEndFrameIndex
+ * @return {int}
+ */
+getEndFrameIndex : function (
+)
+{
+    return 0;
+},
+
+/**
+ * @method getStartFrameIndex
+ * @return {int}
+ */
+getStartFrameIndex : function (
+)
+{
+    return 0;
+},
+
+/**
  * @method getInnerActionType
  * @return {ccs.timeline::InnerActionType}
  */
@@ -3727,6 +3619,36 @@ getInnerActionType : function (
 )
 {
     return 0;
+},
+
+/**
+ * @method setEndFrameIndex
+ * @param {int} arg0
+ */
+setEndFrameIndex : function (
+int 
+)
+{
+},
+
+/**
+ * @method setEnterWithName
+ * @param {bool} arg0
+ */
+setEnterWithName : function (
+bool 
+)
+{
+},
+
+/**
+ * @method setSingleFrameIndex
+ * @param {int} arg0
+ */
+setSingleFrameIndex : function (
+int 
+)
+{
 },
 
 /**
@@ -3740,6 +3662,16 @@ int
 },
 
 /**
+ * @method getSingleFrameIndex
+ * @return {int}
+ */
+getSingleFrameIndex : function (
+)
+{
+    return 0;
+},
+
+/**
  * @method setInnerActionType
  * @param {ccs.timeline::InnerActionType} arg0
  */
@@ -3750,13 +3682,13 @@ inneractiontype
 },
 
 /**
- * @method getStartFrameIndex
- * @return {int}
+ * @method setAnimationName
+ * @param {String} arg0
  */
-getStartFrameIndex : function (
+setAnimationName : function (
+str 
 )
 {
-    return 0;
 },
 
 /**
@@ -3786,16 +3718,6 @@ InnerActionFrame : function (
 ccs.ColorFrame = {
 
 /**
- * @method getAlpha
- * @return {unsigned char}
- */
-getAlpha : function (
-)
-{
-    return 0;
-},
-
-/**
  * @method getColor
  * @return {color3b_object}
  */
@@ -3803,16 +3725,6 @@ getColor : function (
 )
 {
     return cc.Color3B;
-},
-
-/**
- * @method setAlpha
- * @param {unsigned char} arg0
- */
-setAlpha : function (
-char 
-)
-{
 },
 
 /**
@@ -3840,6 +3752,52 @@ create : function (
  * @constructor
  */
 ColorFrame : function (
+)
+{
+},
+
+};
+
+/**
+ * @class AlphaFrame
+ */
+ccs.AlphaFrame = {
+
+/**
+ * @method getAlpha
+ * @return {unsigned char}
+ */
+getAlpha : function (
+)
+{
+    return 0;
+},
+
+/**
+ * @method setAlpha
+ * @param {unsigned char} arg0
+ */
+setAlpha : function (
+char 
+)
+{
+},
+
+/**
+ * @method create
+ * @return {ccs.timeline::AlphaFrame}
+ */
+create : function (
+)
+{
+    return ccs.timeline::AlphaFrame;
+},
+
+/**
+ * @method AlphaFrame
+ * @constructor
+ */
+AlphaFrame : function (
 )
 {
 },
@@ -4120,6 +4078,18 @@ int
 },
 
 /**
+ * @method init
+ * @param {int} arg0
+ * @return {bool}
+ */
+init : function (
+int 
+)
+{
+    return false;
+},
+
+/**
  * @method getActionTag
  * @return {int}
  */
@@ -4139,6 +4109,15 @@ int
 )
 {
     return ccs.timeline::ActionTimelineData;
+},
+
+/**
+ * @method ActionTimelineData
+ * @constructor
+ */
+ActionTimelineData : function (
+)
+{
 },
 
 };
@@ -4227,6 +4206,18 @@ func
 },
 
 /**
+ * @method IsAnimationInfoExists
+ * @param {String} arg0
+ * @return {bool}
+ */
+IsAnimationInfoExists : function (
+str 
+)
+{
+    return false;
+},
+
+/**
  * @method getTimelines
  * @return {Array}
  */
@@ -4237,9 +4228,43 @@ getTimelines : function (
 },
 
 /**
+ * @method play
+ * @param {String} arg0
+ * @param {bool} arg1
+ */
+play : function (
+str, 
+bool 
+)
+{
+},
+
+/**
+ * @method getAnimationInfo
+ * @param {String} arg0
+ * @return {ccs.timeline::AnimationInfo}
+ */
+getAnimationInfo : function (
+str 
+)
+{
+    return ccs.timeline::AnimationInfo;
+},
+
+/**
  * @method resume
  */
 resume : function (
+)
+{
+},
+
+/**
+ * @method removeAnimationInfo
+ * @param {String} arg0
+ */
+removeAnimationInfo : function (
+str 
 )
 {
 },
@@ -4252,6 +4277,16 @@ getTimeSpeed : function (
 )
 {
     return 0;
+},
+
+/**
+ * @method addAnimationInfo
+ * @param {ccs.timeline::AnimationInfo} arg0
+ */
+addAnimationInfo : function (
+animationinfo 
+)
+{
 },
 
 /**
@@ -4378,160 +4413,77 @@ ActionTimeline : function (
 };
 
 /**
- * @class CSLoader
+ * @class ObjectExtensionData
  */
-ccs.CSLoader = {
+ccs.ObjectExtensionData = {
 
 /**
- * @method setJsonPath
+ * @method setActionTag
+ * @param {int} arg0
+ */
+setActionTag : function (
+int 
+)
+{
+},
+
+/**
+ * @method setCustomProperty
  * @param {String} arg0
  */
-setJsonPath : function (
+setCustomProperty : function (
 str 
-)
-{
-},
-
-/**
- * @method createNodeFromJson
- * @param {String} arg0
- * @return {cc.Node}
- */
-createNodeFromJson : function (
-str 
-)
-{
-    return cc.Node;
-},
-
-/**
- * @method loadNodeWithFile
- * @param {String} arg0
- * @return {cc.Node}
- */
-loadNodeWithFile : function (
-str 
-)
-{
-    return cc.Node;
-},
-
-/**
- * @method bindCallback
- * @param {String} arg0
- * @param {String} arg1
- * @param {ccui.Widget} arg2
- * @param {cc.Node} arg3
- * @return {bool}
- */
-bindCallback : function (
-str, 
-str, 
-widget, 
-node 
-)
-{
-    return false;
-},
-
-/**
- * @method purge
- */
-purge : function (
 )
 {
 },
 
 /**
  * @method init
- */
-init : function (
-)
-{
-},
-
-/**
- * @method loadNodeWithContent
- * @param {String} arg0
- * @return {cc.Node}
- */
-loadNodeWithContent : function (
-str 
-)
-{
-    return cc.Node;
-},
-
-/**
- * @method isRecordJsonPath
  * @return {bool}
  */
-isRecordJsonPath : function (
+init : function (
 )
 {
     return false;
 },
 
 /**
- * @method getJsonPath
+ * @method getCustomProperty
  * @return {String}
  */
-getJsonPath : function (
+getCustomProperty : function (
 )
 {
     return ;
 },
 
 /**
- * @method setRecordJsonPath
- * @param {bool} arg0
+ * @method getActionTag
+ * @return {int}
  */
-setRecordJsonPath : function (
-bool 
+getActionTag : function (
 )
 {
+    return 0;
 },
 
 /**
- * @method destroyInstance
+ * @method create
+ * @return {ccs.ObjectExtensionData}
  */
-destroyInstance : function (
+create : function (
 )
 {
+    return ccs.ObjectExtensionData;
 },
 
 /**
- * @method createNode
- * @param {String} arg0
- * @return {cc.Node}
+ * @method ObjectExtensionData
+ * @constructor
  */
-createNode : function (
-str 
+ObjectExtensionData : function (
 )
 {
-    return cc.Node;
-},
-
-/**
- * @method createTimeline
- * @param {String} arg0
- * @return {ccs.timeline::ActionTimeline}
- */
-createTimeline : function (
-str 
-)
-{
-    return ccs.timeline::ActionTimeline;
-},
-
-/**
- * @method getInstance
- * @return {cc.CSLoader}
- */
-getInstance : function (
-)
-{
-    return cc.CSLoader;
 },
 
 };

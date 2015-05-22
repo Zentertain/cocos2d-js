@@ -30,12 +30,12 @@ getDebugSlotsEnabled : function (
 
 /**
  * @method setAttachment
- * @param {String} arg0
- * @param {String} arg1
- * @return {bool}
- */
-setAttachment : function (
-str, 
+* @param {String|String} str
+* @param {char|String} char
+* @return {bool|bool}
+*/
+setAttachment : function(
+str,
 str 
 )
 {
@@ -58,6 +58,18 @@ isOpacityModifyRGB : function (
 )
 {
     return false;
+},
+
+/**
+ * @method initWithData
+ * @param {spSkeletonData} arg0
+ * @param {bool} arg1
+ */
+initWithData : function (
+spskeletondata, 
+bool 
+)
+{
 },
 
 /**
@@ -165,6 +177,20 @@ getTimeScale : function (
 },
 
 /**
+ * @method initWithFile
+* @param {String|String} str
+* @param {String|spAtlas} str
+* @param {float|float} float
+*/
+initWithFile : function(
+str,
+spatlas,
+float 
+)
+{
+},
+
+/**
  * @method setBlendFunc
  * @param {cc.BlendFunc} arg0
  */
@@ -176,10 +202,10 @@ blendfunc
 
 /**
  * @method setSkin
- * @param {String} arg0
- * @return {bool}
- */
-setSkin : function (
+* @param {char|String} char
+* @return {bool|bool}
+*/
+setSkin : function(
 str 
 )
 {
@@ -431,7 +457,7 @@ float
 /**
  * @method SkeletonAnimation
  * @constructor
-* @param {String|spSkeletonData|String} str
+* @param {spSkeletonData|String|String} spskeletondata
 * @param {spAtlas|String} spatlas
 * @param {float|float} float
 */

@@ -49,6 +49,19 @@ var UIBaseLayer = cc.Layer.extend({
         this._mainNode = mainNode;
         this._topDisplayText = topDisplayText;
     },
+
+    _parseUIFile: function(file){
+        if(cocoStudioOldApiFlag == 0){
+            cc.log("ccs.load : %s", file);
+            var json = ccs.load(file);
+            return json.node;
+        }else{
+            //ccs.uiReader.widgetFromJsonFile only supports 1.x file.
+            cc.log("ccs.uiReader.widgetFromJsonFile : %s", file);
+            return ccs.uiReader.widgetFromJsonFile(file)
+        }
+    },
+
     backEvent: function (sender, type) {
         if (type == ccui.Widget.TOUCH_ENDED) {
             runGuiTestMain();

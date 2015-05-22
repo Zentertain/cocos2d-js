@@ -43,6 +43,13 @@ cc.defineGetterSetter(_proto, "opacity", _proto.getOpacity, _proto.setOpacity);
 cc.defineGetterSetter(_proto, "opacityModifyRGB", _proto.isOpacityModifyRGB, _proto.setOpacityModifyRGB);
 cc.defineGetterSetter(_proto, "color", _proto.getColor, _proto.setColor);
 
+_proto = cc.Label.prototype;
+cc.defineGetterSetter(_proto, "size", _proto.getContentSize, _proto.setContentSize);
+cc.defineGetterSetter(_proto, "width", _proto._getWidth, _proto._setWidth);
+cc.defineGetterSetter(_proto, "height", _proto._getHeight, _proto._setHeight);
+cc.defineGetterSetter(_proto, "boundingWidth", _proto.getWidth, _proto.setWidth);
+cc.defineGetterSetter(_proto, "boundingHeight", _proto.getHeight, _proto.setHeight);
+
 _proto = cc.LabelTTF.prototype;
 cc.defineGetterSetter(_proto, "size", _proto.getContentSize, _proto.setContentSize);
 cc.defineGetterSetter(_proto, "width", _proto._getWidth, _proto._setWidth);
@@ -156,7 +163,6 @@ cc.defineGetterSetter(_proto, "scheduler", _proto.getScheduler, _proto.setSchedu
 cc.defineGetterSetter(_proto, "shaderProgram", _proto.getShaderProgram, _proto.setShaderProgram);
 cc.defineGetterSetter(_proto, "glServerState", _proto.getGLServerState, _proto.setGLServerState);
 cc.defineGetterSetter(_proto, "tag", _proto.getTag, _proto.setTag);
-cc.defineGetterSetter(_proto, "userData", _proto.getUserData, _proto.setUserData);
 cc.defineGetterSetter(_proto, "userObject", _proto.getUserObject, _proto.setUserObject);
 cc.defineGetterSetter(_proto, "arrivalOrder", _proto.getArrivalOrder, _proto.setArrivalOrder);
 
@@ -244,7 +250,6 @@ cc.defineGetterSetter(_proto, "texture", _proto.getTexture, _proto.setTexture);
 _proto = cc.Texture2D.prototype;
 cc.defineGetterSetter(_proto, "name", _proto.getName);
 cc.defineGetterSetter(_proto, "pixelFormat", _proto.getPixelFormat);
-cc.defineGetterSetter(_proto, "defaultPixelFormat", _proto.getDefaultAlphaPixelFormat, _proto.setDefaultAlphaPixelFormat);
 cc.defineGetterSetter(_proto, "pixelsWidth", _proto.getPixelsWide);
 cc.defineGetterSetter(_proto, "pixelsHeight", _proto.getPixelsHigh);
 cc.defineGetterSetter(_proto, "width", _proto._getWidth);
@@ -252,6 +257,7 @@ cc.defineGetterSetter(_proto, "height", _proto._getHeight);
 cc.defineGetterSetter(_proto, "shaderProgram", _proto.getShaderProgram, _proto.setShaderProgram);
 cc.defineGetterSetter(_proto, "maxS", _proto.getMaxS, _proto.setMaxS);
 cc.defineGetterSetter(_proto, "maxT", _proto.getMaxT, _proto.setMaxT);
+cc.defineGetterSetter(cc.Texture2D, "defaultPixelFormat", cc.Texture2D.getDefaultAlphaPixelFormat, cc.Texture2D.setDefaultAlphaPixelFormat);
 
 _proto = cc.LabelAtlas.prototype;
 cc.defineGetterSetter(_proto, "string", _proto.getString, _proto.setString);
@@ -261,6 +267,7 @@ _proto = cc.LabelBMFont.prototype;
 cc.defineGetterSetter(_proto, "string", _proto.getString, _proto._setStringForSetter);
 cc.defineGetterSetter(_proto, "textAlign", _proto._getAlignment, _proto.setAlignment);
 cc.defineGetterSetter(_proto, "boundingWidth", _proto._getBoundingWidth, _proto.setBoundingWidth);
+cc.defineGetterSetter(_proto, "boundingHeight", _proto._getBoundingHeight, _proto.setBoundingHeight);
 
 _proto = cc.Menu.prototype;
 cc.defineGetterSetter(_proto, "enabled", _proto.getEnabled, _proto.setEnabled);
